@@ -1,0 +1,59 @@
+.canvasDiv
+{
+    position: relative;
+    margin: auto;
+	padding: 0;
+    width: 720px;
+    height: 560px;
+}
+.imageDiv
+{
+    position: relative;
+    margin: auto;
+    align-items: center;
+    width: 80%;
+    text-align: center;
+}
+
+.divception
+{
+    display: inline-block;
+    position: relative;
+}
+.thisDivsATop
+{
+    margin: auto;
+    padding: 0;
+    width: 80vw;
+}
+
+canvas
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+}
+
+video
+{
+    position: absolute;
+}
+
+.generic
+{
+    display: block;
+    position: relative;
+    margin: auto;
+    padding: 0;
+    text-align: center;
+}
+.sliders
+{
+    position: relative;
+    margin: auto;
+    width: 50%;
+    align-items: center;
+    text-align: center;
+
+}
