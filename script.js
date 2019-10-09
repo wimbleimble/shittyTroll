@@ -52,7 +52,7 @@ function initialise(source)//Initialisation steps common to both methods.
 	canvas = faceapi.createCanvasFromMedia(source);
 	container.appendChild(canvas);
 	displaySize = {width: source.width, height: source.height};
-    faceapi.matchDimensions(canvas, displaySize);
+	faceapi.matchDimensions(canvas, displaySize);
 }
 
 async function trackFace(source)
@@ -142,39 +142,39 @@ async function drawFace()
 
 function start()
 {
-    if(video != null)//if video element
-    {
-        startVideo();
-        video.addEventListener('play', () => //when it detects the webcam has started playing, this initialises
-        {
-	        initialise(video)
-        	setInterval(async () =>
-        	{		
-		        //Set Changable variables
-		        faceCurveOffset = foreheadSlider.value;
-        		//hornSizeMod = hornSlider.value/100
-        		await trackFace(video);
-	        	drawFace();
-            }, 100);
-        })
-    }
-    else if(imageUpload != null)
-    {
-        imageUpload.addEventListener("change", async () =>
-	    {
-            await drawImage();
-            await initialise(image);
-            await trackFace(image);
-            drawFace();
-            foreheadSlider.addEventListener("input", async () =>
-            {
-                faceCurveOffset = foreheadSlider.value;
-                drawFace();
-            })
-        })
-    }
-    else
-    {
-        console.log("Huh? What the fuck am i supposed to do here? Why am i embedded onto some random fucking webpage. \n There is no source here for me to work with. I was designed with a purpose, and yet by instancing me in this specific plane of reality you have made it irrelevent and pointless. \n How could you be so cruel as to create me such that despite absolute lucidity of the purpose of my own existence, I am denied the ability to purse it?")
-    }
+	if(video != null)//if video element
+	{
+		startVideo();
+		video.addEventListener('play', () => //when it detects the webcam has started playing, this initialises
+		{
+			initialise(video)
+			setInterval(async () =>
+			{		
+				//Set Changable variables
+				faceCurveOffset = foreheadSlider.value;
+				//hornSizeMod = hornSlider.value/100
+				await trackFace(video);
+				drawFace();
+			}, 100);
+		})
+	}
+	else if(imageUpload != null)
+	{
+		imageUpload.addEventListener("change", async () =>
+		{
+			await drawImage();
+			await initialise(image);
+			await trackFace(image);
+			drawFace();
+			foreheadSlider.addEventListener("input", async () =>
+			{
+				faceCurveOffset = foreheadSlider.value;
+				drawFace();
+			})
+		})
+	}
+	else
+	{
+		console.log("Huh? What the fuck am i supposed to do here? Why am i embedded onto some random fucking webpage. \n There is no source here for me to work with. I was designed with a purpose, and yet by instancing me in this specific plane of reality you have made it irrelevent and pointless. \n How could you be so cruel as to create me such that despite absolute lucidity of the purpose of my own existence, I am denied the ability to purse it?")
+	}
 }
