@@ -44,7 +44,7 @@ async function drawImage()//Intialisation just for image method.
 		container.removeChild(container.firstChild);
 	}
 	image = await faceapi.bufferToImage(imageUpload.files[0]);
-    container.appendChild(image);
+	container.appendChild(image);
 }
 
 function initialise(source)//Initialisation steps common to both methods.
@@ -60,11 +60,11 @@ async function trackFace(source)
 	//setup face detection
 	const face_but_shit = await faceapi.detectSingleFace(source, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks();
 	face = faceapi.resizeResults(face_but_shit, displaySize);
-    points = face.landmarks._positions;
-    //a few useful variables for points i use a couple of times. Bit redundant, as points[17] is much faster to write than leftEyeBrow. but eh.
+	points = face.landmarks._positions;
+	//a few useful variables for points i use a couple of times. Bit redundant, as points[17] is much faster to write than leftEyeBrow. but eh.
 	leftEyeBrow = points[17];
 	rightEyeBrow = points[26];
-    chin = points[8];
+	chin = points[8];
 }
 
 async function drawFace()
