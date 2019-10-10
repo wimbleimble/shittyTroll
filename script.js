@@ -67,7 +67,7 @@ async function trackFace(source)
 	chin = points[8];
 }
 
-async function drawFace()
+async function drawFace(source)
 {
 	/*Buncha maths shit in order to determine where the bezier control point for the top of the face shape is located.
 	Quick rundown of how it works, because you are going to forget you twp piece of shit:
@@ -79,6 +79,7 @@ async function drawFace()
 	offsetting the control point up relative to the face by an amount = faceCurveOffset.
 	FUCK that was satisfying to work out.		
 	*/
+	faceCurveOffset = foreheadSlider.value * (source.height/560);
 	var curveOffsetVectorL = {xc: leftEyeBrow._x - chin._x, yc: leftEyeBrow._y - chin._y};//Vector from chin to left eyebrow.
 	var curveOffsetVectorR = {xc: rightEyeBrow._x - chin._x, yc: rightEyeBrow._y - chin._y};//Vector from chin to right eyebrow.
 	var magnitudeCOVL = Math.sqrt(Math.pow(curveOffsetVectorL.xc, 2) + Math.pow(curveOffsetVectorL.yc, 2));//Magnitude of vector from chin to left eyebrow.
@@ -151,10 +152,10 @@ function start()
 			setInterval(async () =>
 			{		
 				//Set Changable variables
-				faceCurveOffset = foreheadSlider.value;
+				//faceCurveOffset = foreheadSlider.value;
 				//hornSizeMod = hornSlider.value/100
 				await trackFace(video);
-				drawFace();
+				drawFace(video);
 			}, 100);
 		})
 	}
@@ -165,11 +166,11 @@ function start()
 			await drawImage();
 			await initialise(image);
 			await trackFace(image);
-			drawFace();
+			drawFace(image);
 			foreheadSlider.addEventListener("input", async () =>
 			{
-				faceCurveOffset = foreheadSlider.value;
-				drawFace();
+				//faceCurveOffset = foreheadSlider.value * (image.height/560);
+				drawFace(image);
 			})
 		})
 	}
