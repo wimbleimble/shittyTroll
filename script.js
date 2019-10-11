@@ -5,6 +5,7 @@ var rightHorn = new Image();
 var hornSizeMod = 0.8;
 var hornSize;
 var hornOffset;
+var hornOffsetMod;
 var faceCurveOffset = 80;
 var foreheadSlider = document.getElementById("forehead");
 var hornSlider = document.getElementById("hornSize");
@@ -17,6 +18,7 @@ var canvas;
 var displaySize;
 var container = document.getElementById("poop");
 var image;
+var hornSelect;
 
 leftHorn.src = "https://i.imgur.com/EBU0rKN.png";
 rightHorn.src = "https://i.imgur.com/x1Ilyj2.png";
@@ -69,12 +71,36 @@ async function trackFace(source)
 
 async function drawFace(source)
 {
+	/*Setting up horn type to be drawnUHHHHHHH gave up sorry i was really fuckin bored of resizing horns and i think i might need to 
+	rejig the whole vector shit to work with bigger horns.
+	hornSelect = document.getElementById("horns").value;
+	switch(hornSelect)
+	{
+		case "Karkat":
+			leftHorn.src = "https://i.imgur.com/EBU0rKN.png";
+			rightHorn.src = "https://i.imgur.com/x1Ilyj2.png";
+			hornSizeMod = 0.8;
+			hornOffsetMod = 2;
+			break;
+		case "Aradia":
+			leftHorn.src = "https://i.imgur.com/U7okLWh.png";
+			rightHorn.src = "https://i.imgur.com/FmRluqM.png";
+			hornSizeMod = 1.6;
+			hornOffsetMod = 19;
+			break;
+		case "Kanaya":
+			leftHorn.src = "https://i.imgur.com/tZYyMBD.png";
+			rightHorn.src = "https://i.imgur.com/STm2PpU.png";
+			hornSizeMod = 1.5;
+			hornOffsetMod = 17;
+	}*/
+	
 	/*Buncha maths shit in order to determine where the bezier control point for the top of the face shape is located.
 	Quick rundown of how it works, because you are going to forget you twp piece of shit:
 	(each step is done for both left and right)
 	1. Determines the vector from the chin to the corner of the eye.
 	2. Determines the magnitude of this vector.
-	3. Finds the corresponding unit vector for this vector, this gives us a direction.
+	3. Finds the corresponding unit vector for this vector, gets a direction.
 	4. When the curve is drawn, a value of faceCurveOffset * by the repective component of the unit vector is added to the coordinates of the control points,
 	offsetting the control point up relative to the face by an amount = faceCurveOffset.
 	FUCK that was satisfying to work out.		
@@ -172,6 +198,10 @@ function start()
 				//faceCurveOffset = foreheadSlider.value * (image.height/560);
 				drawFace(image);
 			})
+			/*hornSelect.addEventListener("change", async () =>
+			{
+				drawFace(image);
+			})*/
 		})
 	}
 	else
