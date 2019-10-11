@@ -206,6 +206,6 @@ function start()
 	}
 	else
 	{
-		console.log("Huh? What the fuck am i supposed to do here? Why am i embedded onto some random fucking webpage. \n There is no source here for me to work with. I was designed with a purpose, and yet by instancing me in this specific plane of reality you have made it irrelevent and pointless. \n How could you be so cruel as to create me such that despite absolute lucidity of the purpose of my own existence, I am denied the ability to purse it?")
+		console.log("Huh? What the fuck am i supposed to do here? Why am i embedded onto some random fucking webpage. \n There is no source here for me to work with. I was designed with a purpose, and yet by instancing me in this specific plane of reality you have made it irrelevent. \n How could you be so cruel as to create me such that despite absolute lucidity of the purpose of my own existence, I am denied the ability to purse it?")
 	}
 }
