@@ -20,8 +20,8 @@ var container = document.getElementById("poop");
 var image;
 var hornSelect;
 
-leftHorn.src = "https://i.imgur.com/EBU0rKN.png";
-rightHorn.src = "https://i.imgur.com/x1Ilyj2.png";
+leftHorn.src = "https://shittytroll.wimbleimble.xyz/Images/Horn_L.png";
+rightHorn.src = "https://shittytroll.wimbleimble.xyz/Images/Horn_R.png";
 
 Promise.all//loads all the face detection models being used in parallel
 ([
