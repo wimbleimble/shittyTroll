@@ -31,7 +31,7 @@ Promise.all//loads all the face detection models being used in parallel
 
 function startVideo()//Bet you can fucking guess what this one does eh.
 {
-	navigator.getUserMedia
+	navigator.mediaDevices.getUserMedia
 	(
 		{ video: {} },
 		stream => video.srcObject = stream,
